@@ -4,26 +4,15 @@ import { InMemoryLRUCache } from '@apollo/utils.keyvaluecache';
 
 import resolvers from './resolvers.js'
 
-const typeDefs = `#graphql
+const typeDefs = `
     type Book {
         title: String
         author: String
     }
     type Query {
-        books: [Book]
+        books: [Book!]!
     }
 `;
-
-const books = [
-    {
-        title: "Fellowship of the Ring",
-        author: "J.R.R. Tolkein"
-    },
-    {
-        title: "The Hobbit",
-        author: "J.R.R. Tolkein"
-    }
-]
 
 const server = new ApolloServer({
     typeDefs, 
